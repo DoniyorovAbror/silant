@@ -1,0 +1,48 @@
+{% load static %}
+<div class="form_wrapper">
+    <form id='form_maintenance' >
+        {% csrf_token %}
+        <select name='modelOfMachine'>
+            <option> Техника </option>
+            {% for item in vehicleFN %}
+            <option value="{{item.title}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+
+        <select name="typeOfMaintenance">
+            <option> Вид ТО </option>
+            {% for item in typeOfMaintenance %}
+                <option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="datemaintenance">
+                Дата проведения ТО
+            </label>
+            <input id='datemaintenance' type="date" name='dateOfMaintenance'>
+        </div>
+        <input type="text" name='operatingTime' placeholder="Наработка, м/час">
+        <input type="text" name='numberOrderWork' placeholder="№ заказ-наряда">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="dateorderwork">
+                Дата заказ-наряда
+            </label>
+            <input id='dateorderwork' type="date" name='dateOrderWork'>
+        </div>
+
+
+        <select name="serviceCompany">
+            <option> Сервис. компания проводивщая ТО </option>
+            {% for item in users %}
+            <option value="{{item.id}}">{{item.first_name}}</option>
+            {% endfor %}
+            <option value="Самостоятельно"> Самостоятельно </option>
+        </select>
+
+        
+            <button id='add_maintenance_button' >Добавить</button>
+        
+    </form>
+    <button id='back'>Назад</button>
+</div>
+<script src={% static "js/add_maintenance.js" %}></script>

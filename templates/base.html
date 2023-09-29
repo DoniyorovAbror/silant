@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %} 
+        
+        <link rel="stylesheet" href={% static "css/styles.css"%}>
+        
+        {% block title %}{% endblock title %}
+    </head>
+    <body>
+        <div class="container">
+            <div class="nav">
+                <a href={% url "home" %}><img src={% static "img/logo.png" %} alt="logotype"></a>   
+                <div>
+                    <span>+7-8352-20-12-09, </span>
+                    <span>Telegram</span>
+                </div>
+                <div class="auth_block">
+                    {% if request.user.is_authenticated %}
+                    <span class="username">{{request.user.first_name}}</span>
+                    <button onclick='logout()'>Выйти</button>
+                    {% else %}
+                    <button onclick='login()'>Войти</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <h1>Электронная сервисная книжка "Мой Силант"</h1>
+        {% block content %}{% endblock content %}
+        <div class="phantom">
+
+        </div>
+        <footer>
+
+        </footer>
+        <script src={% static "js/auth.js" %}></script>
+    </body>
+</html>

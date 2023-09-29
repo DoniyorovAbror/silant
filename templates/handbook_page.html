@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Справочник</title>
+{% endblock title %}
+
+{% block content %}
+{% if model %}
+<div class="handbook_of_model">
+    <h3>{{model.title}}</h3>
+    <p>{{model.description}}</p>
+</div>
+{% endif %}
+
+{% if user_info %}
+<div class="handbook_of_model">
+    <h3>{{user_info}}</h3>
+    <p>{{user_info.get_role}}</p>
+</div>
+{% endif %}
+
+<button id='back'>Назад</button>
+{% endblock content %}

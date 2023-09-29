@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="container anonym_container">
+    <h3>Проверьте комплектацию и технические характеристики техники Силант</h3>
+
+    <input
+        type="text"
+        id="input_factory_number"
+        class="input_factory_number"
+        placeholder="Заводской номер"
+
+    />
+    <button id="button_search" disabled>Поиск</button>
+
+    <div class="table_wrapper">
+        <table id="table_anonym">
+            <th>Зав. № машины</th>
+            <th>Модель техники</th>
+            <th>Модель двигателя</th>
+            <th>Зав. № двигателя</th>
+            <th>Модель трансмиссии</th>
+            <th>Зав. № трансмиссии</th>
+            <th>Модель ведущего моста</th>
+            <th>Зав. № ведущего моста</th>
+            <th>Модель управляемого моста</th>
+            <th>Зав. № управляемого моста</th>
+        </table>
+    </div>
+</div>
+
+<script src={% static "js/anonym.js" %}></script>
+

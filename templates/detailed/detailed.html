@@ -1,0 +1,41 @@
+{% extends "../base.html" %}
+
+{% load static %}
+
+{% block title %}
+<title> Техника - {{id}} </title>
+{% endblock title %}
+
+{% block content %}
+<div class="container anonym_container">
+    
+    <div id="tabs" class="tabs">
+        <div class='label'>
+            <input type="radio" id='info' name='tab' value='info' checked>
+            <label for='info'>
+                Техника
+            </label>
+        </div>
+        <div class='label'>
+            <input type="radio" id='TO' name='tab' value='maintenance' >
+            <label for='TO'>
+                ТО
+            </label>
+        </div>
+        <div class='label'>
+            <input type="radio" id='complaints' name='tab' value='complaints' >
+            <label for='complaints'>
+                Рекламация
+            </label>
+        </div>
+    </div>
+    <button id='back'>Назад</button>
+    {% include "detailed/info.html" %}
+    {% include "detailed/maintenance.html" %}
+    {% include "detailed/complaints.html" %}
+</div>
+
+{{id|json_script:'id'}}
+<script src={% static "js/detailed.js" %}></script>
+
+{% endblock content %}

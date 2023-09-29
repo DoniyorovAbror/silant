@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Новая запись</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container anonym_container">
+{% if name == 'vehicle' %}
+    {% include "new_data/add_vehicle.html" %}
+{% elif name == 'maintenance' %}
+    {% include "new_data/add_maintenance.html" %}
+{% elif name == 'complaints' %}
+    {% include "new_data/add_complaints.html" %}
+{% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,23 @@
+<div class='table_wrapper' id='maintenance'>
+    
+    
+    {% if perms.Vehicle.add_maintenance %}
+    <button id="add_new_maintenance">Добавить</button>
+    {% endif %}
+
+    <table id='table_maintenance'>
+        <tr>
+            <th>№</th>
+            <th>Зав. № машины</th>
+            <th>Вид ТО</th>
+            <th>Дата проведения ТО <span id='maintenance_sort_button' style='cursor: pointer;'>&#8645;</span></th>
+            <th>Наработка, м/час</th>
+            <th>№ заказ-наряда</th>
+            <th>Дата заказ-наряда</th>
+            <th>Организация, проводившая ТО</th>
+            
+        </tr>
+      
+    </table>
+
+</div>

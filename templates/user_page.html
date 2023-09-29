@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="container anonym_container">
+    
+    <div id="tabs" class="tabs">
+    <div class='label'>
+        <input type="radio" id='info' name='tab' value='info' checked>
+        <label for='info'>
+            Техника
+        </label>
+    </div>
+    <div class='label'>
+        <input type="radio" id='TO' name='tab' value='maintenance' >
+        <label for='TO'>
+            ТО
+        </label>
+    </div>
+    <div class='label'>
+        <input type="radio" id='complaints' name='tab' value='complaints' >
+        <label for='complaints'>
+            Рекламация
+        </label>
+    </div>
+</div>
+    {% include "./tabs/info.html" %}
+    {% include "./tabs/maintenance.html" %}
+    {% include "./tabs/complaints.html" %}
+</div>
+
+<script src={% static "js/user.js" %}></script>

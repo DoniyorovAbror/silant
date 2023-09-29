@@ -1,0 +1,66 @@
+{% load static %}
+<div class="form_wrapper">
+    <form id='form_vehicle' >
+        {% csrf_token %}
+        <input type="text" name='factoryNumberOfMachine' placeholder="Зав. № Техники">
+        <select name='modelOfMachine'>
+            <option> Модель Техники </option>
+            {% for item in vehicle %}
+            <option  value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name='factoryNumberOfEngine' placeholder="Зав. № двигателя">
+        <select name="modelOfEngine">
+            <option> Модель двигателя </option>
+            {% for item in engine %}
+                <option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name='factoryNumberOfTransmission' placeholder="Зав. № трансмиссии">
+        <select name="modelOfTransmission">
+            <option> Модель трансмиссии </option>
+            {% for item in transmission %}
+                <option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name='factoryNumberOfMainAxle' placeholder="Зав. № ведущего моста">
+        <select name="modelOfMainAxle">
+            <option> Модель ведущего моста </option>
+            {% for item in transmission %}
+                <option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name='factoryNumberOfSteeringAxle' placeholder="Зав. № управляемого моста">
+        <select name="modelOfSteeringAxle">
+            <option> Модель управляемого моста </option>
+            {% for item in steeringAxle %}
+                <option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name='supplyContract' placeholder="Договор поставки №, Дата">
+        <input type="text" name='consumer' placeholder="Грузополучатель">
+        <input type="text" name='operationAddress' placeholder="Адрес поставки">
+        <select name="client">
+            <option> Покупатель </option>
+            {% for item in users %}
+                {% if item.users.role == 'CS' %}
+                    <option value="{{item.id}}">{{item.first_name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <select name="serviceCompany">
+            <option> Сервисная компания </option>
+            {% for item in users %}
+                {% if item.users.role == 'SC' %}
+                    <option value="{{item.id}}">{{item.first_name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <textarea name="additionalOptions" id="options" cols="20" rows="3" placeholder='Доп. опции'></textarea>
+        
+            <button id='add_vehicle_button' >Добавить</button>
+            
+        </form>
+        <button id='back'>Назад</button>
+</div>
+<script src={% static "js/add_vehicle.js" %}></script>

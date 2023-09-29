@@ -1,0 +1,22 @@
+<div class='table_wrapper' id='complaints'>
+    {% if perms.Vehicle.add_complaints %}
+        <button id="add_new_complaints">Добавить</button>
+    {% endif %} 
+    
+    <table id='table_complaints'>
+        <tr>
+            <th>№</th>
+            <th>Зав. № машины</th>
+            <th>Дата отказа <span id='complaints_sort_button' style='cursor: pointer;'>&#8645;</span></th>
+            <th>Наработка, м/час</th>
+            <th>Узел отказа</th>
+            <th>Описание отказа</th>
+            <th>Способ восстановления</th>
+            <th>Используемые запасные части</th>
+            <th>Дата восстановления</th>
+            <th>Время простоя техники</th>
+        </tr>
+       
+    </table>
+
+</div>

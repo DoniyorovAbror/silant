@@ -1,0 +1,63 @@
+{% load static %}
+<div class="form_wrapper">
+    <form id='form_complaints' >
+        {% csrf_token %}
+        <select name='modelOfMachine'>
+            <option> Техника </option>
+            {% for item in vehicleFN %}
+            <option value="{{item.title}}">{{item.title}}</option>
+            {% endfor %}
+        </select>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="datefailure">
+                Дата отказа
+            </label>
+            <input id='datefailure' type="date" name='dateOfFailure'>
+        </div>
+
+        <input type="text" name='operatingTime' placeholder="Наработка, м/час">
+
+        <select name="nodeOfFailure">
+            <option> Узел отказа </option>
+            
+            {% for item in typeOfFailure %}
+                <option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+            
+        </select>
+        <textarea name="descriptionOfFailure" cols="10" rows="4" placeholder='Описания отказа'></textarea>
+
+        <select name="recoveryMethod">
+            <option> Способ восстановления </option>
+            {% for item in recoveryMethod %}
+                <option value="{{item.id}}">{{item.title}}</option>
+            {% endfor %}
+            
+        </select>
+        <input type="text" placeholder='Используемые запасные части' name='usedSpareParts'>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="daterecovery">
+                Дата восстановления
+            </label>
+            <input id='daterecovery' type="date" name='dateOfRecovery'>
+        </div>
+
+        <select name="serviceCompany">
+            <option> Сервис. компания </option>
+            {% for item in users %}
+                <option value="{{item.id}}">{{item.first_name}}</option>
+            {% endfor %}
+
+        </select>
+
+        
+        
+            <button id='add_complaints_button' >Добавить</button>
+            
+        </form>
+        <button id='back'>Назад</button>
+</div>
+
+<script src={% static "js/add_complaints.js" %}></script>
